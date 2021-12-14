@@ -30,7 +30,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
   double _amplitude = 1;
   double _frequency = 6;
   double _speed = .2;
@@ -103,6 +103,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildFrequencySection() {
     return AnimatedSize(
+      vsync: this,
       curve: Curves.fastOutSlowIn,
       duration: const Duration(milliseconds: 400),
       child: _isSelected[0]
@@ -147,6 +148,7 @@ class _HomePageState extends State<HomePage> {
     }
 
     return AnimatedSize(
+      vsync: this,
       curve: Curves.fastOutSlowIn,
       duration: const Duration(milliseconds: 400),
       child: _isSelected[0]
